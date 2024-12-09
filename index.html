@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ogshock</title>
+
+<meta name="robots" content="noindex,nofollow"><meta name="keywords"  content="">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--=============Google Font ===============-->
+<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+<!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+<!--印象編　6-3　スクロールすると画面分割した左右がそれぞれ動く-->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/multiscroll.js/0.2.2/jquery.multiscroll.css">
+<!--自作のCSS-->
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/parts.css">
+<link rel="stylesheet" type="text/css" href="css/layout.css">
+</head>
+
+<body>
+<div id="splash">
+<div id="splash_logo">
+    
+	<img src="img/logo1.JPG" alt="Logo" />
+    
+		
+<!--/splash-logo--></div>
+<!--/splash--></div>
+<div class="splashbg"></div><!---画面遷移用-->
+    
+<div id="container">
+<header id="header">
+	<nav>
+	<ul id="menu">
+		<li data-menuanchor="area1"><a href="#area1">Top</a></li>
+		<li data-menuanchor="area6"><a href="#area6">Contact</a></li>
+	</ul>
+	</nav>
+</header>
+
+<div id="wrapper">
+
+	<div class="ms-left">
+		<div class="ms-section" id="left1">
+			<video autoplay loop muted playsinline>
+				<source src="video/ogshock03.mp4" type="video/mp4">
+			</video>
+			<div class="particle" id="pt1"></div>
+		</div>
+		<section class="ms-section" id="left2">
+            <div class="sp-top"></div>
+			<div class="sp-bottom">
+            <h2 class="TextTyping">NEW ARRIVAL</h2>
+            <a href="https://ogshock.stores.jp/items/673eca3cb8b29907ead3b876" class="btn bgleft">
+                <span>STORE</span>
+            </a>
+			</div>
+        </section>
+		<section class="ms-section" id="left3">
+            <div class="sp-top"></div>
+			<div class="sp-bottom">
+			<h2 class="TextTyping">NEW ARRIVAL</h2>
+            <a href="https://ogshock.stores.jp/items/673eca3cb8b29907ead3b876" class="btn bgleft">
+                <span>STORE</span>
+            </a>
+			</div>
+        </section>
+		<div class="ms-section" id="left4">
+			<div class="sp-top"></div>
+			<div class="sp-bottom"></div>
+        <div class="particle" id="pt3"></div>
+        </div>
+		<div class="ms-section" id="left5">
+			<div class="sp-top"></div>
+			<div class="sp-bottom"></div>
+        <div class="particle" id="pt5"></div>
+        </div>
+		<section class="ms-section" id="left6">
+			<div class="sp-bottom">
+			<h2>Contact</h2>
+            <ul>
+                <li><a href="#" target="_blank"><img src="img/ico_insta.svg" alt=""></a></li>
+                <li><a href="#" target="_blank"><img src="img/ico_tw.svg" alt=""></a></li>
+                <li><a href="#" target="_blank"><img src="img/ico_fb.svg" alt=""></a></li>
+            </ul>
+			</div>        
+        </section>
+	<!--/ms-left--></div>
+	
+	<div class="ms-right">
+		<div class="ms-section" id="right1">
+			<video autoplay loop muted playsinline>
+				<source src="video/ogshock03.mp4" type="video/mp4">
+			</video>
+			<!-- <h1 class="TextTyping">ogshock ogshock ogshock ogshock ogshock ogshock</h1> -->
+			<div class="particle" id="pt2"></div>
+    	<!--/right1--></div>
+
+		<div class="ms-section" id="right2">
+		<!--/right2--></div>
+
+		<div class="ms-section" id="right3">
+		<!--/right3--></div>
+		
+		<div class="ms-section" id="right4">
+        <div class="particle" id="pt4"></div>
+		<!--/right4--></div>
+    
+    	<div class="ms-section" id="right5">
+        <div class="particle" id="pt6"></div>
+		<!--/right5--></div>
+				
+		<div class="ms-section" id="right6">
+		<!--/right6--></div>
+	<!--/ms-right--></div>
+<!--/wrapper--></div>
+<footer id="footer">
+<small>&copy; test</small>
+</footer>
+<!--/container--></div>
+	
+<!--=============JS ===============--> 
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+<!--機能編 4-1-5　ロゴアウトラインアニメーション-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js"></script>
+<!--印象編　5-5　雪が降る/5-6　桜が散る-->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<!--印象編　6-3　スクロールすると画面分割した左右がそれぞれ動く-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/multiscroll.js/0.2.2/jquery.multiscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!--自作のJS-->    
+<script src="js/script.js"></script>
+</body>
+</html>
