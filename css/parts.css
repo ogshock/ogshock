@@ -306,20 +306,20 @@ body.appear #container{
 }
 
 #right4 {
-    background: url("../img/01pic2.png") no-repeat center center; /* 中央に配置 */
+    background: url("../img/05pic.png") no-repeat center center; /* 中央に配置 */
     background-size: cover;
 }
 #left4 {
-    background: url("../img/03pic.png") no-repeat center center; /* 中央に配置 */
+    background: url("../img/mo2.JPG") no-repeat center center; /* 中央に配置 */
     background-size: cover;
 }
 
 #right5 {
-    background: url("../img/05pic.png") no-repeat center center; /* 中央に配置 */
+    background: url("../img/03pic.png") no-repeat center center; /* 中央に配置 */
     background-size: cover;
 }
 #left5 {
-    background: url("../img/01pic2.png") no-repeat center center; /* 中央に配置 */
+    background: url("../img/mo1.JPG") no-repeat center center; /* 中央に配置 */
     background-size: cover;
 }
 
