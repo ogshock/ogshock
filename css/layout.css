@@ -119,6 +119,9 @@ h2.pink {
 h2.navy {
     color: rgba(55, 56, 108, 0.973); /* テキストを黒色に */
 }
+h2.red {
+    color: rgba(164, 47, 47, 0.973); /* テキストを黒色に */
+}
 
 /* スマホ用のスタイル */
 @media screen and (max-width: 768px) {
