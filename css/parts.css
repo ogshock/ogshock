@@ -1,0 +1,406 @@
+@charset "utf-8";
+
+/* Loading背景画面設定　*/
+#splash {
+    /*fixedで全面に固定*/
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background:#ffffff;
+	text-align:center;
+	color:#000000;
+}
+
+/* Loading画像中央配置　*/
+#splash_logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#splash_logo img {
+    width: 250px; /* SVG の幅に合わせます */
+    display: block;
+    margin: auto;
+}
+
+
+/* Loading アイコンの大きさ設定　*/
+#splash_logo svg{
+    width:250px;
+}
+
+
+/*画面遷移アニメーション*/
+.splashbg{
+	display: none;
+}
+
+body.appear .splashbg{
+    display: block;
+    position:fixed;
+	z-index: 999;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+	left: 0;
+    transform: scaleY(0);
+    background-color:#2a2a2a;/*伸びる背景色の設定*/
+	animation-name:PageAnime;
+	animation-duration:1.2s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+}
+
+@keyframes PageAnime{
+	0% {
+		transform-origin:top;
+		transform:scaleY(0);
+	}
+	50% {
+		transform-origin:top;
+		transform:scaleY(1);
+	}
+	50.001% {
+		transform-origin:bottom;
+	}
+	100% {
+		transform-origin:bottom;
+		transform:scaleY(0);
+	}
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#container{
+    position: relative;
+    z-index: 1;
+	opacity: 0;/*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear #container{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay: 0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+
+@keyframes PageAnimeAppear{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+}
+}
+
+#menu li a{
+    /*線の基点とするためrelativeを指定*/
+	position: relative;
+}
+
+#menu li a::after {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 34px;
+    left: 10%;
+    /*線の形状*/
+    width: 80%;
+    height: 1px;
+    background: #000000;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: center top;/*上部中央基点*/
+}
+
+/*現在地とhoverの設定*/
+#menu li a:hover::after {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+
+/*スクロールダウン全体の場所*/
+.scrolldown1{
+    /*描画位置※位置は適宜調整してください*/
+	position:absolute;
+	right:50px;
+	bottom:50px;
+    /*全体の高さ*/
+	height:50px;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown1 span{
+    /*描画位置*/
+	position: absolute;
+	left:-15px;
+	top: -15px;
+    /*テキストの形状*/
+	color: #eee;
+	font-size: 0.7rem;
+	letter-spacing: 0.05em;
+}
+
+/* 線の描写 */
+.scrolldown1::after{
+	content: "";
+    /*描画位置*/
+	position: absolute;
+	top: 0;
+    /*線の形状*/
+	width: 1px;
+	height: 30px;
+	background: #eee;
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+	animation: pathmove 1.4s ease-in-out infinite;
+	opacity:0;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove{
+	0%{
+		height:0;
+		top:0;
+		opacity: 0;
+	}
+	30%{
+		height:30px;
+		opacity: 1;
+	}
+	100%{
+		height:0;
+		top:50px;
+		opacity: 0;
+	}
+}
+
+
+/*== ボタン共通設定 */
+.btn {
+    /*アニメーションの起点とするためrelativeを指定*/
+    position: relative;
+    z-index: 1000; /* ボタンが最前面に表示されるよう調整 */
+    pointer-events: auto; /* クリック可能にする */
+    overflow: hidden;
+    /*ボタンの形状*/
+    text-decoration: none;
+    display: inline-block;
+    border: 3px solid #ffffff; /* ボーダーの色と太さ */
+    padding: 10px 30px;
+    text-align: center;
+    outline: none;
+    border-radius: 10px; /* 角を丸くする */
+    /*アニメーションの指定*/   
+    transition: ease .2s;
+}
+
+
+/*ボタン内spanの形状*/
+.btn span {
+	position: relative;
+	z-index: 3;
+	color: #fff;
+	text-shadow: 
+		-1px -1px 0 #000, /* 左上 */
+		 1px -1px 0 #000, /* 右上 */
+		-1px  1px 0 #000, /* 左下 */
+		 1px  1px 0 #000; /* 右下 */
+}
+
+/*== 左から右 */
+.bgleft:before {
+ 	content: '';
+    /*絶対配置で位置を指定*/
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	z-index: 2;
+    /*色や形状*/
+ 	background:#000000;/*背景色*/
+ 	width: 100%;
+	height: 100%;
+    /*アニメーション*/
+ 	transition: transform .6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+ 	transform: scale(0, 1);
+	transform-origin: right top;
+}
+
+@media screen and (max-width: 550px) {
+    /* ボタンの色を変更 */
+    .btn {
+		margin: 240px auto 10px auto; /* 上部に余白を追加して中央揃え */
+    }
+
+    
+    /* アニメーション背景色変更 */
+    
+}
+
+/*hoverした際の形状*/
+.bgleft:hover:before{
+	transform-origin:left top;
+	transform:scale(1, 1);
+}
+.TextTyping {
+    color: rgb(255, 255, 255);
+	z-index: 100;
+}
+
+.TextTyping span {
+	display: none;
+}
+
+
+
+
+.particle{ 
+	position:absolute;/*描画固定*/
+    left:0;
+    top:0;
+	width: 100%;
+	height: 100vh;
+}
+
+
+/*全体のエリア設定*/
+
+.ms-section{
+	color:#fff;
+	padding:20px;
+}
+
+.ms-section a{
+	color:#fff;
+}
+
+/*右にある丸ナビゲーション色*/
+
+#multiscroll-nav span{
+	background:transparent!important;
+	border-color:#fff!important;
+}
+
+/*右にある丸のナビゲーション現在地色*/
+
+#multiscroll-nav li .active span{
+	background:#fff!important;
+}
+
+/*左上のナビゲーション*/
+
+#menu li {
+	display:inline-block;
+}
+
+#menu li a{
+	display:inline-block;
+	text-decoration:none;
+	color: #ffffff;
+	padding:20px;
+}
+
+/*右エリア画像設定*/
+
+#right2 {
+    background: url("../img/mo2.JPG") no-repeat center center; /* 中央に配置 */
+    background-size: cover;
+}
+
+#right3 {
+    background: url("../img/mo02.jpeg") no-repeat center center; /* 中央に配置 */
+    background-size: cover;
+}
+
+#right4 {
+    background: url("../img/mo03.JPG") no-repeat center center; /* 中央に配置 */
+    background-size: cover;
+}
+#left4 {
+    background: url("../img/") no-repeat center center; /* 中央に配置 */
+    background-size: cover;
+}
+
+#right5 {
+    background: url("../img/mo04.JPG") no-repeat center center; /* 中央に配置 */
+    background-size: cover;
+}
+#left5 {
+    background: url("../img/") no-repeat center center; /* 中央に配置 */
+    background-size: cover;
+}
+
+#right6 {
+    background: url("../img/mo05.jpeg") no-repeat center center; /* 中央に配置 */
+    background-size: cover;
+}
+
+
+/*＝＝＝＝＝＝＝＝＝＝＝550px以下の見え方＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+@media screen and (max-width:550px){
+	
+#header{
+	justify-content: center;
+}
+
+/*全体のボックスについている余白をリセット*/
+.ms-section{
+	padding:0;
+}
+
+/*天地中央になっている見せ方を上ぞろえに上書き*/
+.ms-tableCell{
+	vertical-align:top;
+}
+
+/*左上ナビゲーションと左エリア非表示*/
+#menu,
+.ms-right{
+	display: none;
+}
+
+/*右エリアを横幅100%にして画像＋テキストを出す設定*/
+.ms-left{
+	width:100%!important;
+}
+
+/* 左エリア上部画像設定 */
+
+
+#left2  {
+    background: url("../img/mo1.JPG") no-repeat center center; /* 中央配置 */
+    background-size: cover;
+    height: 50vh;
+}
+
+#left3  {
+    background: url("../img/mo02.jpeg") no-repeat center center; /* 中央配置 */
+    background-size: cover;
+    height: 50vh;
+}
+#left4  {
+    background: url("../img/mo03.JPG") no-repeat center center; /* 中央配置 */
+    background-size: cover;
+    height: 50vh;
+}
+#left5  {
+    background: url("../img/mo04.JPG") no-repeat center center; /* 中央配置 */
+    background-size: cover;
+    height: 50vh;
+}
+#left6 {
+    background: url("../img/mo05.jpeg") no-repeat center center; /* 中央配置 */
+    background-size: cover;
+}
+
+/*右エリア下部テキスト余白設定*/
+.sp-bottom{
+	padding:20px;
+}
+	
+}
