@@ -190,7 +190,7 @@ body.appear #container{
     /*ボタンの形状*/
 	text-decoration: none;
 	display: inline-block;
-   	border: 1px solid #fff;/* ボーダーの色と太さ */
+   	border: 3px solid #000000;/* ボーダーの色と太さ */
     padding: 10px 30px;
     text-align: center;
     outline: none;
@@ -201,8 +201,13 @@ body.appear #container{
 /*ボタン内spanの形状*/
 .btn span {
 	position: relative;
-	z-index: 3;/*z-indexの数値をあげて文字を背景よりも手前に表示*/
-	color:#fff;
+	z-index: 3;
+	color: #fff;
+	text-shadow: 
+		-1px -1px 0 #000, /* 左上 */
+		 1px -1px 0 #000, /* 右上 */
+		-1px  1px 0 #000, /* 左下 */
+		 1px  1px 0 #000; /* 右下 */
 }
 
 /*== 左から右 */
