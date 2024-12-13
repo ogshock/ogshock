@@ -101,11 +101,19 @@ body.appear h1{
     transform: translate(-50%,-50%);    
 }
 
-h2{
+h2 {
     font-size: 2rem;
     letter-spacing: 0.2em;
     margin: 0 0 30px 0;
+    color: rgb(255, 255, 255);
+    text-shadow: 
+        -2px -2px 0 #000, /* 左上 */
+         2px -2px 0 #000, /* 右上 */
+        -2px  2px 0 #000, /* 左下 */
+         2px  2px 0 #000; /* 右下 */
 }
+
+
 
 @media screen and (max-width:550px){
  h2{
