@@ -105,22 +105,32 @@ h2 {
     font-size: 2rem;
     letter-spacing: 0.2em;
     margin: 0 0 30px 0;
-    color: rgb(255, 255, 255);
-    text-shadow: 
-        -2px -2px 0 #000, /* 左上 */
-         2px -2px 0 #000, /* 右上 */
-        -2px  2px 0 #000, /* 左下 */
-         2px  2px 0 #000; /* 右下 */
+   
+}
+h2.black {
+    color: rgba(41, 41, 41, 0.913); /* テキストを黒色に */
+}
+h2.gray {
+    color: rgba(181, 181, 181, 0.783); /* テキストを黒色に */
+}
+h2.pink {
+    color: rgba(251, 101, 211, 0.952); /* テキストを黒色に */
+}
+h2.navy {
+    color: rgba(55, 56, 108, 0.973); /* テキストを黒色に */
 }
 
-
-
-@media screen and (max-width:550px){
- h2{
-    font-size: 1.5rem;
+/* スマホ用のスタイル */
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 4.5rem; /* フォントサイズを小さく */
+        letter-spacing: 0.1em; /* 文字間隔を調整 */
+        margin: -150px auto 10px auto; /* 上部に余白を追加して中央揃え */
+        
+        
+        text-align: center; /* 中央揃え */
     }
 }
-
 
 #left6 .sp-bottom p{
     margin:0 0 50px 0;
